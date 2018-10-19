@@ -7,6 +7,10 @@ end
 
 gem 'rails', '~> 5.1.6'
 gem 'bcrypt', '3.1.12'
+gem 'faker', '1.7.3'
+gem 'will_paginate', '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 gem "jquery-rails"
 gem "jquery-ui-rails"
 # Use sqlite3 as the database for Active Record
