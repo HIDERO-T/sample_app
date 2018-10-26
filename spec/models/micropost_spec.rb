@@ -26,10 +26,20 @@ RSpec.describe Micropost, type: :model do
       @micropost.content = "a" * 141
       expect(@micropost).not_to be_valid
     end
+  end
 
+  describe "micropost associations" do
+    before do
+      @user = FactoryBot.create(:michael)
+    end
+    let!(:older_mircopost) do
+      FactoryBot.create(:micropost, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_micropost) do
+      FactoryBot.create(:micropost, user: @user, created_at: 1.hour.ago)
+    end
     it "order should be most recent first" do
-      pending("Not implemented")
-      raise
+      expect(@user.microposts.to_a).to eq [newer_micropost, older_mircopost]
     end
   end
 end

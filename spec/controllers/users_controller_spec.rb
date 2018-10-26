@@ -39,13 +39,13 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "should redirect following to login" do
-        pending("Not implemented.")
-        raise
+        get :following, params: {id: @user.id}, session: @empty_session
+        expect(response).to redirect_to login_path
       end
 
       it "should redirect followers to login" do
-        pending("Not implemented.")
-        raise
+        get :followers, params: {id: @user.id}, session: @empty_session
+        expect(response).to redirect_to login_path
       end
     end
 
@@ -75,6 +75,5 @@ RSpec.describe UsersController, type: :controller do
         expect(response).to redirect_to root_url
       end
     end
-
   end
 end
