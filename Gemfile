@@ -16,8 +16,7 @@ gem 'mini_magick', '4.7.0'
 
 gem "jquery-rails"
 gem "jquery-ui-rails"
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
@@ -51,6 +50,7 @@ group :development, :test do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
 end
@@ -74,3 +74,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'pg', '0.20.0'
+end
